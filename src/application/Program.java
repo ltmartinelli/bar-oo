@@ -7,67 +7,57 @@ import java.util.Scanner;
 public class Program {
 
 	public static void main(String[] args) {
-		
+
 		Locale.setDefault(Locale.US);
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		Bill bill = new Bill();
-		
-		
 
-		 //Leitura de Dados
-       System.out.print("Sexo: ");
-       bill.gender = sc.next().charAt(0);
-       sc.nextLine();
-             
-       
-       while (bill.gender != 'F' && bill.gender!='M')
-    	   
-       {
-    	   System.out.print("Insira um caractere válido (F/M):");
-    	   bill.gender = sc.next().charAt(0);
-           sc.nextLine();
-       }
-      
+		// Leitura de Dados
+		System.out.print("Sexo: ");
+		bill.gender = sc.next().charAt(0);
+		sc.nextLine();
 
-       System.out.print("Quantidade de cervejas: ");
-       bill.beer = sc.nextInt();
-       sc.nextLine();
-       
+		while (bill.gender != 'F' && bill.gender != 'M')
 
-       System.out.print("Quantidade de refrigerantes: ");
-       bill.softDrink = sc.nextInt();
-       sc.nextLine();
+		{
+			System.out.print("Insira um caractere válido (F/M):");
+			bill.gender = sc.next().charAt(0);
+			sc.nextLine();
+		}
 
-       System.out.print("Quantidade de espetinhos: ");
-       bill.barbecue = sc.nextInt();
-       sc.nextLine();
-       
-     //Valor Total e Relatório
+		System.out.print("Quantidade de cervejas: ");
+		bill.beer = sc.nextInt();
+		sc.nextLine();
 
-       System.out.println();
-       System.out.println("RELATÓRIO");
-       System.out.printf("Consumo: R$ %.2f%n", bill.feeding());
-       
-       
-       if (bill.cover() > 0)
-       {
-    	   System.out.printf("Couvert: R$ %.2f%n", bill.cover());
-       }
-       else
-       {
-    	   System.out.println("Isento de Couvert");
-       }
+		System.out.print("Quantidade de refrigerantes: ");
+		bill.softDrink = sc.nextInt();
+		sc.nextLine();
 
-       System.out.printf("Ingresso: R$ %.2f%n", bill.ticket());
+		System.out.print("Quantidade de espetinhos: ");
+		bill.barbecue = sc.nextInt();
+		sc.nextLine();
 
-       System.out.println();
+		// Valor Total e Relatório
 
-       System.out.printf("Valor a pagar: R$ %.2f%n", bill.total());
-       
-       
-       sc.close();
+		System.out.println();
+		System.out.println("RELATÓRIO");
+		System.out.printf("Consumo: R$ %.2f%n", bill.feeding());
+
+		if (bill.cover() > 0) {
+			System.out.printf("Couvert: R$ %.2f%n", bill.cover());
+		} else {
+			System.out.println("Isento de Couvert");
+		}
+
+		System.out.printf("Ingresso: R$ %.2f%n", bill.ticket());
+
+		System.out.println();
+
+		System.out.printf("Valor a pagar: R$ %.2f%n", bill.total());
+
+		sc.close();
 	}
 
 }
